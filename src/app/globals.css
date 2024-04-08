@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Futura";   /*Can be any text*/
+  src: local("Futura"),
+  url("../assets/fonts/FUTURA55REGULAR.TTF") format("truetype");
+}
+
 .p-dropdown-trigger svg path {
   fill: #fff;
 }

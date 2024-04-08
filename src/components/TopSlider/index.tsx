@@ -40,22 +40,22 @@ const TopSlider = () => {
       >
         <SwiperSlide>
           <Image
-            className="block w-full h-full object-cover object-top"
-            src={Image1}
+            className="block w-full h-full object-cover object-center"
+            src={Image3}
             alt="Pouring water slider image"
           />
         </SwiperSlide>
         <SwiperSlide>
           <Image
             className="block w-full h-full object-cover object-center"
-            src={Image2}
+            src={Image1}
             alt="Water drop slider image"
           />
         </SwiperSlide>
         <SwiperSlide>
           <Image
             className="block w-full h-full object-cover object-center"
-            src={Image3}
+            src={Image2}
             alt="Water splash slider image"
           />
         </SwiperSlide>

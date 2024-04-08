@@ -1,5 +1,7 @@
 import TopSlider from "@/components/TopSlider";
 import Navigation from "@/components/Navigation";
+import Top from "../../../components/partials/Top";
+import Main from "@/components/partials/Main";
 
 type Props = {
   children: React.ReactNode;
@@ -7,11 +9,16 @@ type Props = {
 
 export default function Home(props: Props) {
   const { children } = props;
+  const heading = "Буріння свердловин на воду будь-якої складності";
+  const description =
+    "В м.Києві, Київській, Житомирській, Черкаській, Вінницькій, Кіровоградській, Рівненській, Полтавській, Сумській, Чернігівській Областях.";
   return (
-    <main className="bg-red-200">
+    <main>
       <Navigation />
-      <TopSlider />
-      <div className="container mx-auto">{children}</div>
+      <Top heading={heading} description={description}>
+        <TopSlider />
+      </Top>
+      <Main />
     </main>
   );
 }
