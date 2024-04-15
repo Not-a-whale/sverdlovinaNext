@@ -2,6 +2,8 @@ import TopSlider from "@/components/TopSlider";
 import Navigation from "@/components/Navigation";
 import Top from "../../../components/partials/Top";
 import Main from "@/components/partials/Main";
+import Services from "@/components/partials/Services";
+import Clients from "@/components/partials/Clients";
 
 type Props = {
   children: React.ReactNode;
@@ -19,6 +21,8 @@ export default function Home(props: Props) {
         <TopSlider />
       </Top>
       <Main />
+      <Services />
+      <Clients />
     </main>
   );
 }
