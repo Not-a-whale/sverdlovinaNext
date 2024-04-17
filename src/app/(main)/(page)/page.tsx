@@ -4,6 +4,7 @@ import Top from "../../../components/partials/Top";
 import Main from "@/components/partials/Main";
 import Services from "@/components/partials/Services";
 import Clients from "@/components/partials/Clients";
+import Ribbon from "@/components/partials/Ribbon";
 
 type Props = {
   children: React.ReactNode;
@@ -23,6 +24,7 @@ export default function Home(props: Props) {
       <Main />
       <Services />
       <Clients />
+      <Ribbon />
     </main>
   );
 }
