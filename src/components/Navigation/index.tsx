@@ -1,6 +1,6 @@
 "use client";
 
-import Phone from "@/assets/images/Phone.svg";
+import Phone from "@/assets/images/phone.svg";
 import Image from "next/image";
 import FlagSelect from "@/components/Navigation/FlagSelect";
 import { useState } from "react";
@@ -16,7 +16,6 @@ const Navigation = () => {
   // else remove it
   if (typeof window !== "undefined") {
     window.addEventListener("scroll", () => {
-      const navbar = document.getElementById("navbar");
       if (window.scrollY > 0) {
         setIsScrolled(true);
       } else {
