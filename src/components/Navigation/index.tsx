@@ -1,10 +1,10 @@
 "use client";
 
-import Logo from "@/components/Navigation/Logo";
 import Phone from "@/assets/images/Phone.svg";
 import Image from "next/image";
 import FlagSelect from "@/components/Navigation/FlagSelect";
 import { useState } from "react";
+import Logo from "@/components/shared/Logo";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);

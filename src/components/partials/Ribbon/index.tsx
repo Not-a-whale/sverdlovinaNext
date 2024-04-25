@@ -1,7 +1,7 @@
 "use client";
 
-import Logo from "@/components/Navigation/Logo";
 import RibbonForm from "@/components/partials/Ribbon/Form";
+import Logo from "@/components/shared/Logo";
 
 const Ribbon = () => {
   return (
