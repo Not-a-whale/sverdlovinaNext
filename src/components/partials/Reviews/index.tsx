@@ -9,7 +9,7 @@ const getData = async (): Promise<IReview[] | undefined> => {
   );
 
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}api`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api`, {
       cache: "no-store",
     });
     return (await res.json()) as IReview[];
