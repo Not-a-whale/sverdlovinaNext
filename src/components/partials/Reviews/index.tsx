@@ -6,7 +6,7 @@ import ReviewSlider from "@/components/partials/Reviews/ReviewSlider";
 
 const getData = async (): Promise<IReview[] | undefined> => {
   try {
-    const res = await fetch("http://localhost:3000/api", { cache: "no-store" });
+    const res = await fetch("/api", { cache: "no-store" });
     return (await res.json()) as IReview[];
   } catch (e) {
     console.log(e);
