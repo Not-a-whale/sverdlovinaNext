@@ -22,6 +22,12 @@ const nextConfig = {
                 port: "",
                 pathname: "**",
             },
+            {
+                protocol: 'http',
+                hostname: "sverdlovina-next.vercel.app",
+                port: "",
+                pathname: "**",
+            },
         ]
     },
     env: {
