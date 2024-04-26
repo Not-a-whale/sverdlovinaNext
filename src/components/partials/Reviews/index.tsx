@@ -14,7 +14,7 @@ const getData = async (): Promise<IReview[] | undefined> => {
   }
 };
 
-const Reviews = async () => {
+const Reviews = () => {
   const [data, setData] = useState<IReview[]>([]);
   useEffect(() => {
     getData()
@@ -27,7 +27,7 @@ const Reviews = async () => {
         }
       })
       .catch((e) => console.log(e));
-  });
+  }, []);
 
   return (
     <>
