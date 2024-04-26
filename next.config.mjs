@@ -4,7 +4,7 @@ import createNextIntlPlugin from 'next-intl/plugin';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains : ['sangw.in', 'localhost', 'picsum.photos'], // <== Domain name
+        domains : ['sangw.in', 'localhost', 'picsum.photos', 'sverdlovina-next.vercel.app', 'sverdlovina-next', 'vercel.app', 'vercel', 'app'], // <== Domain name
         remotePatterns: [
             {
                 hostname: "avatars.githubusercontent.com",
