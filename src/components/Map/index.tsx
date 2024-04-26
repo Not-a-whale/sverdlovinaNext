@@ -9,6 +9,7 @@ const Map = () => {
   useEffect(() => {
     console.log("asadasd", process.env.NEXT_PUBLIC_MAPS_API_KEY);
     console.log("NEXT_PUBLIC_URL", process.env.NEXT_PUBLIC_URL);
+
     const initMap = async () => {
       const loader = new Loader({
         apiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY as string,
