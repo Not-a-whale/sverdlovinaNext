@@ -15,7 +15,7 @@ const RewiewSlide = ({ review }: ReviewSlideProps) => {
       </div>
       <div className="flex gap-5 justify-between items-start">
         <Image
-          src={`https://next-js-task-1vzh.vercel.app/api${review.imageUrl}`}
+          src={`${process.env.NEXT_PUBLIC_URL}/api${review.imageUrl}`}
           alt="Фото профілю"
           width={50}
           height={50}

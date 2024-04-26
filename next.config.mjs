@@ -7,7 +7,10 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "https://sverdlovina-next.vercel.app/",
+                hostname: `${process.env.NEXT_PUBLIC_URL}`,
+            },            {
+                protocol: "http",
+                hostname: `localhost`,
             },
         ],
     },
