@@ -4,35 +4,12 @@ import createNextIntlPlugin from 'next-intl/plugin';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains : ['sangw.in', 'localhost', 'picsum.photos', 'sverdlovina-next.vercel.app', 'https://sverdlovina-next.vercel.app', 'sverdlovina-next', 'vercel'], // <== Domain name
         remotePatterns: [
             {
-                hostname: "avatars.githubusercontent.com",
-                port: "",
-                pathname: "**",
+                protocol: "https",
+                hostname: "**",
             },
-            {
-                hostname: "cloudflare-ipfs.com",
-                port: "",
-                pathname: "**",
-            },
-            {
-                protocol: 'http',
-                hostname: "localhost",
-                port: "",
-                pathname: "**",
-            },
-            {
-                protocol: 'https',
-                hostname: "sverdlovina-next.vercel.app",
-                port: "",
-                pathname: "**",
-            },
-            {
-                protocol: 'https',
-                hostname: '**.vercel.app',
-            },
-        ]
+        ],
     },
     env: {
         NEXT_PUBLIC_MAPS_API_KEY: process.env.NEXT_PUBLIC_MAPS_API_KEY,
