@@ -1,6 +1,9 @@
+"use client";
+
 import SectionHeading from "@/components/SectionHeading";
 import { IReview } from "@/shared/interfaces/review.interface";
 import ReviewSlider from "@/components/partials/Reviews/ReviewSlider";
+import { useEffect, useState } from "react";
 
 const getData = async (): Promise<IReview[] | undefined> => {
   try {
@@ -12,9 +15,20 @@ const getData = async (): Promise<IReview[] | undefined> => {
 };
 
 const Reviews = async () => {
-  const data = await getData();
+  const [data, setData] = useState<IReview[]>([]);
+  useEffect(() => {
+    getData()
+      .then((data) => {
+        console.log("data", data);
+        if (data) {
+          setData(data);
+        } else {
+          setData([]);
+        }
+      })
+      .catch((e) => console.log(e));
+  });
 
-  if (!data) return null;
   return (
     <>
       <SectionHeading title={"Відгуки"} />
