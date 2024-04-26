@@ -9,7 +9,7 @@ const getData = async (): Promise<IReview[] | undefined> => {
   );
 
   try {
-    const res = await fetch(`https://next-js-task-1vzh.vercel.app/api`, {
+    const res = await fetch(`https://sverdlovina-next.vercel.app//api`, {
       cache: "no-store",
     });
     return (await res.json()) as IReview[];

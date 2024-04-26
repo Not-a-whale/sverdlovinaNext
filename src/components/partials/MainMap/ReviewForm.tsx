@@ -58,7 +58,7 @@ const ReviewForm = () => {
     console.log(previewImage);
 
     // post to /api
-    const res = await fetch("https://next-js-task-1vzh.vercel.app/api", {
+    const res = await fetch("https://sverdlovina-next.vercel.app//api", {
       method: "POST",
       body: formData,
     });

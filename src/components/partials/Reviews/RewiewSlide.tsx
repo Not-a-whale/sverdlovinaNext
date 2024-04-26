@@ -6,7 +6,7 @@ type ReviewSlideProps = {
 };
 
 const RewiewSlide = ({ review }: ReviewSlideProps) => {
-  console.log(`https://next-js-task-1vzh.vercel.app/api${review.imageUrl}`);
+  console.log(`https://sverdlovina-next.vercel.app/api${review.imageUrl}`);
 
   return (
     <div className="flex flex-col justify-between items-start mb-12 gap-12 mx-12 mt-10">
