@@ -10,13 +10,7 @@ import Footer from "@/components/Footer";
 import Top from "@/components/partials/Top";
 import { useTranslations } from "next-intl";
 
-type Props = {
-  children: React.ReactNode;
-};
-
-export default function Home(props: Props) {
-  const { children } = props;
-
+export default function Home() {
   const t = useTranslations("Index");
 
   const heading = t("основний_заголовок");
