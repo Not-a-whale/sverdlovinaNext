@@ -5,11 +5,11 @@ import ReviewSlider from "@/components/partials/Reviews/ReviewSlider";
 const getData = async (): Promise<IReview[] | undefined> => {
   console.log(
     "process.env.NEXT_PUBLIC_URL",
-    `${process.env.NEXT_PUBLIC_URL}/api`,
+    `${process.env.NEXT_PUBLIC_URL}api`,
   );
 
   try {
-    const res = await fetch(`https://sverdlovina-next.vercel.app/api`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}api`, {
       cache: "no-store",
     });
     return (await res.json()) as IReview[];
