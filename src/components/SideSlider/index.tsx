@@ -29,25 +29,25 @@ const SideSlider = () => {
       modules={[EffectCards, Autoplay, A11y]}
       effect={"cards"}
       grabCursor={true}
-      className="min-w-[800px] w-max"
+      className="lg:min-w-[40%] xl:min-w-[40%] 2xl:min-w-[800px] w-max h-[70vh] lg:h-[75vh] xl:h-[80vh] 2xl:h-[90vh]"
     >
       <SwiperSlide>
         <Image
-          className="block w-[640px] h-[480px] object-cover object-center rounded-lg"
+          className="block w-[100%] h-[100%] object-cover object-center rounded-lg"
           src={Image3}
           alt="Pouring water slider image"
         />
       </SwiperSlide>
       <SwiperSlide>
         <Image
-          className="block w-[640px] h-[480px] object-cover object-center rounded-lg"
+          className="block w-[100%] h-[100%]] object-cover object-center rounded-lg"
           src={Image1}
           alt="Water drop slider image"
         />
       </SwiperSlide>
       <SwiperSlide>
         <Image
-          className="block w-[640px] h-[480px] object-cover object-center rounded-lg"
+          className="block w-[100%] h-[100%] object-cover object-center rounded-lg"
           src={Image2}
           alt="Water splash slider image"
         />

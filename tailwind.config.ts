@@ -15,6 +15,17 @@ const config: Config = {
         background: "#5AA4E5",
       },
     },
+    screens: {
+      sm: "640px",
+
+      md: "1024px",
+
+      lg: "1536px",
+
+      xl: "1920px",
+
+      "2xl": "2560px",
+    },
   },
   plugins: [require("daisyui")],
 };

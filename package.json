@@ -15,6 +15,7 @@
     "@hookform/resolvers": "^3.3.4",
     "@mui/icons-material": "^5.15.14",
     "@mui/material": "^5.15.14",
+    "lucide": "^0.376.1",
     "mongodb": "^6.5.0",
     "mongoose": "^8.3.2",
     "next": "14.1.4",

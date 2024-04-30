@@ -27,7 +27,7 @@ const MainForm = () => {
   };
 
   return (
-    <div className="w-1/2 ml-auto flex flex-col items-center bg-white/20 backdrop-blur-[120px] rounded-[13px]">
+    <div className="w-full lg:w-[75%] 2xl:w-1/2 ml-auto flex flex-col items-center bg-white/20 backdrop-blur-[120px] rounded-[13px]">
       <h2 className="font-['Futura'] align-middle text-center leading-[25px] my-4 text-2xl text-white">
         Замовити <br /> консультацію
       </h2>
@@ -43,7 +43,7 @@ const MainForm = () => {
               {...field}
               type="text"
               placeholder="Ваше ім'я"
-              className="input input-bordered input-info bg-white/80 w-full max-w-xs xl:max-w-[90%]"
+              className="input input-bordered input-info bg-white/80 w-full max-w-[90%]"
             />
           )}
         />
@@ -55,7 +55,7 @@ const MainForm = () => {
               {...field}
               type="text"
               placeholder="Номер телефону"
-              className="input input-bordered input-info bg-white/80 w-full max-w-xs xl:max-w-[90%]"
+              className="input input-bordered input-info bg-white/80 w-full max-w-[90%]"
             />
           )}
         />
@@ -70,11 +70,11 @@ const MainForm = () => {
               {...field}
               type="text"
               placeholder="Email"
-              className="input input-bordered input-info bg-white/80 w-full max-w-xs xl:max-w-[90%]"
+              className="input input-bordered input-info bg-white/80 w-full max-w-[90%]"
             />
           )}
         />
-        <button className="btn btn-info text-white w-full max-w-xs xl:max-w-[90%] text-lg">
+        <button className="btn btn-info text-white w-full max-w-[90%] text-lg">
           Надіслати заявку
         </button>
       </form>
