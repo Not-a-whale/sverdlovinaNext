@@ -13,7 +13,7 @@ const RewiewSlide = ({ review }: ReviewSlideProps) => {
   };
 
   return (
-    <div className="flex flex-col justify-between items-start mb-12 gap-12 mx-12 mt-10">
+    <div className="flex flex-col justify-between items-center mb-20 gap-12 mx-12 mt-10 max-w-[90vw]">
       <div className="shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] rounded-xl p-6">
         <p className="pointer-events-none">{review.review}</p>
       </div>
@@ -22,9 +22,9 @@ const RewiewSlide = ({ review }: ReviewSlideProps) => {
           loader={imageLoader}
           src={`${process.env.NEXT_PUBLIC_URL}/api${review.imageUrl}`}
           alt="Фото профілю"
-          width={50}
-          height={50}
-          className="rounded-full"
+          width={70}
+          height={70}
+          className="rounded-full w-[70px] h-[70px]"
         />
         <div className="flex flex-col">
           <p>{review.name}</p>

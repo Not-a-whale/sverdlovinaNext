@@ -51,7 +51,7 @@ const Services = () => {
     <>
       <SectionHeading title={"Види послуг"} />;
       {/*4 column css grid that would collapse into two column grid when the viewport is tablet*/}
-      <div className="grid grid-cols-2 gap-10 md:grid-cols-4 md:gap-20 mx-[15%]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start md:grid-cols-4 md:gap-20 mx-[15%]">
         {services.map((service, index) => {
           if (index === 4) {
             return (
@@ -66,7 +66,7 @@ const Services = () => {
                 >
                   <div className={`w-[60px] h-[60px] relative`}>
                     <Image
-                      className="absolute top-0 left-1/4 transform -translate-x-2/4 -translate-y-1/2"
+                      className="absolute top-0 left-1/4 transform -translate-x-3/4 -translate-y-[85%] scale-[2]"
                       src={service.img}
                       alt={service.title}
                     />
@@ -95,7 +95,7 @@ const Services = () => {
               >
                 <Image src={service.img} alt={service.title} />
               </div>
-              <p className="text-primary font-bold text-lg mt-5">
+              <p className="text-primary font-bold text-lg mt-5 uppercase">
                 {service.title}
               </p>
             </div>

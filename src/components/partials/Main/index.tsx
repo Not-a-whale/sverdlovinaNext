@@ -6,19 +6,20 @@ const Main = () => {
   return (
     <div className="text-[32px] px-[5%]">
       <SectionHeading title={"Про компанію"} />
-      <div className="flex justify-between gap-20">
+      <div className="flex justify-between gap-20 flex-col-reverse lg:flex-row">
         <SideSlider />
-        <div>
-          <h2 className="uppercase font-bold mb-4">
+        <div className="w-full lg:w-[45%] 2xl:w-[60%]">
+          <h2 className="uppercase font-bold mb-4 text-center lg:text-left">
             Якісне буріння свердловин від <br />{" "}
             <Link className="text-background" href="/services">
               надійної компанії
             </Link>
           </h2>
-          <p>
+          <p className="text-center lg:text-left">
             З моменту свого заснування у 1996 році, наша спеціалізована компанія
             здійснює якісне гідрогеологічне буріння свердловин будь-якої
             складності. Кваліфіковані фахівці компанії
+            <br />
             <span className="text-background">
               <Link className="text-background" href="/contacts">
                 «СВЕРДЛОВИНА»

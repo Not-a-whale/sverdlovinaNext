@@ -65,7 +65,7 @@ const ReviewForm = () => {
   };
 
   return (
-    <div className="absolute z-20 right-[10%] top-[-10%] bg-background min-w-[36rem] rounded-xl">
+    <div className="absolute z-20 right-[2.5%] lg:right-[10%] left-[2.5%] lg:left-auto top-[-10%] bg-background min-w-[90%] lg:min-w-[36rem] rounded-xl">
       {" "}
       <h2 className="font-['Futura'] align-middle text-center leading-[25px] my-4 text-2xl text-white font-bold">
         Залишити відгук
@@ -74,7 +74,7 @@ const ReviewForm = () => {
         className="flex flex-col items-center space-y-4 p-2 w-full pb-8"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="flex justify-between">
+        <div className="flex justify-between gap-4 w-[98%] flex-col md:flex-row">
           <Controller
             name="name"
             control={control}
@@ -83,7 +83,7 @@ const ReviewForm = () => {
                 {...field}
                 type="text"
                 placeholder="Ваше ім'я"
-                className="input input-bordered input-info bg-white w-full max-w-xs xl:max-w-[49%]"
+                className="input input-bordered input-info bg-white w-full max-w-[100%] xl:max-w-[49%]"
               />
             )}
           />

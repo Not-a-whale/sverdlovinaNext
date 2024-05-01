@@ -16,10 +16,7 @@ const Top = ({ children, heading, description }: TopProps) => {
   };
 
   return (
-    <div
-      className="
-    h-[70vh] lg:h-[75vh] xl:h-[80vh] 2xl:h-[90vh]"
-    >
+    <div className="h-[70vh] lg:h-[75vh] xl:h-[80vh] 2xl:h-[90vh]">
       <div
         className="absolute flex
         gap-6
@@ -36,14 +33,14 @@ const Top = ({ children, heading, description }: TopProps) => {
             text-[2rem]
             lg:text-left
             text-center
-           md:text-[2rem] lg:text-[3rem] xl:text-[4rem] leading-[2.4rem] xl:leading-[3rem] 2xl:leading-[4rem] font-bold text-white"
+           md:text-[2.5rem] lg:text-[3rem] xl:text-[4rem] leading-[2.4rem] xl:leading-[3rem] 2xl:leading-[4rem] font-bold text-white md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl"
           >
             {heading}
           </h1>
           <p
             className="my-8
-            lg:text-left
-            text-center text-white text-[1.4rem] md:text-xl lg:text-xl xl:text-xl"
+            text-center text-white text-[1.3rem] md:text-[1.5rem]
+            lg:text-left"
           >
             {description}
           </p>

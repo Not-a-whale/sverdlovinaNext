@@ -1,58 +1,44 @@
-"use client";
+import styles from "./index.module.scss";
 
-// import Swiper core and required modules
-import { A11y, Autoplay, EffectCards } from "swiper/modules";
-
-import { Swiper, SwiperSlide } from "swiper/react";
+import Image from "next/image";
 
 import Image1 from "@/assets/images/side_slider/image_1.jpeg";
 import Image2 from "@/assets/images/side_slider/image_2.jpeg";
 import Image3 from "@/assets/images/side_slider/image_3.jpeg";
 
-// import Swiper core and required modules
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-import Image from "next/image";
-
 const SideSlider = () => {
   return (
-    <Swiper
-      slidesPerView={1}
-      loop={true}
-      autoplay={{
-        delay: 2500,
-        disableOnInteraction: false,
-      }}
-      modules={[EffectCards, Autoplay, A11y]}
-      effect={"cards"}
-      grabCursor={true}
-      className="lg:min-w-[40%] xl:min-w-[40%] 2xl:min-w-[800px] w-max h-[70vh] lg:h-[75vh] xl:h-[80vh] 2xl:h-[90vh]"
+    <div
+      className={`${styles.about__composition} w-full sm:mx-auto sm:mt-4 lg:m-0 md:w-3/4 lg:w-[45%] 2xl:w-[30%]`}
     >
-      <SwiperSlide>
-        <Image
-          className="block w-[100%] h-[100%] object-cover object-center rounded-lg"
-          src={Image3}
-          alt="Pouring water slider image"
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image
-          className="block w-[100%] h-[100%]] object-cover object-center rounded-lg"
-          src={Image1}
-          alt="Water drop slider image"
-        />
-      </SwiperSlide>
-      <SwiperSlide>
-        <Image
-          className="block w-[100%] h-[100%] object-cover object-center rounded-lg"
-          src={Image2}
-          alt="Water splash slider image"
-        />
-      </SwiperSlide>
-    </Swiper>
+      <Image
+        className={
+          styles.about__composition__photo +
+          " " +
+          styles.about__composition__photo__1
+        }
+        src={Image1}
+        alt="Pouring water slider image"
+      />
+      <Image
+        className={
+          styles.about__composition__photo +
+          " " +
+          styles.about__composition__photo__2
+        }
+        src={Image2}
+        alt="Water drop slider image"
+      />
+      <Image
+        className={
+          styles.about__composition__photo +
+          " " +
+          styles.about__composition__photo__3
+        }
+        src={Image3}
+        alt="Water splash slider image"
+      />
+    </div>
   );
 };
 

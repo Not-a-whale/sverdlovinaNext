@@ -7,9 +7,10 @@ const Ribbon = () => {
   return (
     <div
       className="
-                  mt-72
+                  mt-36 md:mt-48 lg:mt-56 xl:mt-64 2xl:mt-72
                   w-full
-                  h-[12.5rem]
+                  lg:h-[12.5rem]
+                  h-max
                   bg-gradient-to-tr
                   from-[#138BF5]
                   to-[#78C0FF]
@@ -17,15 +18,26 @@ const Ribbon = () => {
                   items-center
                   justify-between
                   px-[5%]
+                  py-4
   "
     >
-      <Logo isLogoBg={false} isScrolled={true} isEnlarged={true} />
-      <div className="w-1/2 flex items-center justify-between">
+      <div className="hidden lg:block">
+        <Logo isLogoBg={false} isScrolled={true} isEnlarged={true} />
+      </div>
+      <div className="w-full lg:w-1/2 flex flex-col md:flex-row gap-2 items-center justify-between">
         <div className="flex flex-col w-fit">
-          <h2 className="text-white uppercase text-2xl font-bold mb-4">
+          <h2
+            className="text-white uppercase text-2xl font-bold mb-4
+            lg:text-left
+            text-center"
+          >
             Виникли запитання?
           </h2>
-          <p className="text-white text-xl">
+          <p
+            className="text-white text-xl
+            lg:text-left
+            text-center"
+          >
             Замов консультацію у нашого <br /> спеціаліста.
           </p>
         </div>
@@ -34,7 +46,7 @@ const Ribbon = () => {
             // @ts-ignore
             return document.getElementById("my_modal_4").showModal();
           }}
-          className="btn bg-white text-background w-max max-w-xs xl:max-w-[90%] text-lg px-52"
+          className="btn bg-white text-background mt-4 lg:m-0 w-full md:w-1/2 max-w-xs xl:max-w-[90%] text-lg"
         >
           Надіслати заявку
         </button>

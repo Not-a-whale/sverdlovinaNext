@@ -28,7 +28,7 @@ const Logo = ({
         >
           sverdlovyna
         </p>
-        <p className={`text-md ${isScrolled ? "text-primary" : "text-white"}`}>
+        <p className={`text-xl ${isScrolled ? "text-primary" : "text-white"}`}>
           {t("буріння_свердловин")}
         </p>
       </div>
