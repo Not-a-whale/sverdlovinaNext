@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   const messages = require(`../../../messages/${locale}.json`);
   return (
-    <html lang={locale}>
+    <html lang={locale} data-theme="light">
       <Head>
         <link
           href="https://cdn.jsdelivr.net/npm/futura-font@1.0.0/styles.min.css"
