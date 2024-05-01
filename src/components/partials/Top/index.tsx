@@ -25,7 +25,7 @@ const Top = ({ children, heading, description }: TopProps) => {
         lg:flex-row
         mx-auto
         justify-between md:w-[75%] lg:w-[90%] left-[5%] right-[5%]
-        z-20 lg:top-1/2 transform translate-y-1/4 lg:-translate-y-[50%]"
+        z-20 lg:top-1/2 transform translate-y-[15%] lg:-translate-y-[50%]"
       >
         <div className="max-w-[90%] lg:max-w-[45%] mx-auto">
           <h1
