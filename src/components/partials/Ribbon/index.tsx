@@ -17,7 +17,7 @@ const Ribbon = () => {
                   flex
                   items-center
                   justify-between
-                  px-[5%]
+                  px-[7.5%]
                   py-4
   "
     >

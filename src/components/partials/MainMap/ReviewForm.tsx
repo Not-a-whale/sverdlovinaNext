@@ -65,7 +65,7 @@ const ReviewForm = () => {
   };
 
   return (
-    <div className="absolute z-20 right-[2.5%] lg:right-[10%] left-[2.5%] lg:left-auto top-[-10%] bg-background min-w-[90%] lg:min-w-[36rem] rounded-xl">
+    <div className="absolute z-20 mx-auto lg:m-0 right-[2.5%] lg:right-[7.5%] left-[2.5%] lg:left-auto top-[-30%] md:top-[-20%] bg-background w-[85%] md:w-[50%] lg:w-[36rem] rounded-xl">
       {" "}
       <h2 className="font-['Futura'] align-middle text-center leading-[25px] my-4 text-2xl text-white font-bold">
         Залишити відгук
@@ -74,7 +74,7 @@ const ReviewForm = () => {
         className="flex flex-col items-center space-y-4 p-2 w-full pb-8"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="flex justify-between gap-4 w-[98%] flex-col md:flex-row">
+        <div className="flex justify-between gap-4 w-[98%] lg:w-[90%] flex-col md:flex-row">
           <Controller
             name="name"
             control={control}
@@ -95,7 +95,7 @@ const ReviewForm = () => {
                 {...field}
                 type="text"
                 placeholder="Ваше місто"
-                className="input input-bordered input-info bg-white w-full max-w-xs xl:max-w-[49%]"
+                className="input input-bordered input-info bg-white w-full max-w-[100%] xl:max-w-[49%]"
               />
             )}
           />
@@ -108,11 +108,11 @@ const ReviewForm = () => {
               {...field}
               type="text"
               placeholder="Email"
-              className="input input-bordered input-info bg-white w-full max-w-xs xl:max-w-[90%]"
+              className="input input-bordered input-info bg-white w-[98%] lg:w-[90%]"
             />
           )}
         />
-        <div className="flex items-center justify-between max-w-[90%] w-full gap-4">
+        <div className="flex items-center justify-between w-[98%] lg:w-[90%] gap-4">
           <label htmlFor="chooseFile" className="btn">
             Виберіть фото
           </label>
@@ -138,12 +138,12 @@ const ReviewForm = () => {
             <textarea
               {...field}
               placeholder="Відгук про компанію"
-              className="input input-bordered input-info bg-white w-full max-w-xs xl:max-w-[90%] py-2 min-h-32"
+              className="input input-bordered input-info bg-white w-[98%] lg:w-[90%] py-2 min-h-32"
             />
           )}
         />
         <button
-          className="btn bg-white text-background w-full max-w-xs xl:max-w-[90%] text-lg"
+          className="btn bg-white text-background w-[98%] lg:w-[90%] text-lg"
           onClick={(formState) => {
             onSubmit(getValues());
           }}

@@ -8,6 +8,12 @@
   url("../../assets/fonts/FUTURA55REGULAR.TTF") format("truetype");
 }
 
+@layer base {
+    html {
+        color-scheme: light !important;
+    }
+}
+
 .p-dropdown-trigger svg path {
   fill: #fff;
 }

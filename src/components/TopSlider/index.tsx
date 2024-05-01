@@ -25,42 +25,40 @@ import Image from "next/image";
 
 const TopSlider = () => {
   return (
-    <div className="relative">
-      <Swiper
-        slidesPerView={1}
-        navigation={true}
-        loop={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        pagination={{ type: "bullets", clickable: true }}
-        modules={[Navigation, Pagination, Autoplay, Scrollbar, A11y]}
-        className="h-[70vh] lg:h-[75vh] xl:h-[80vh] 2xl:h-[90vh] w-full"
-      >
-        <SwiperSlide>
-          <Image
-            className="block w-full h-full object-cover object-center"
-            src={Image3}
-            alt="Pouring water slider image"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            className="block w-full h-full object-cover object-center"
-            src={Image1}
-            alt="Water drop slider image"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Image
-            className="block w-full h-full object-cover object-center"
-            src={Image2}
-            alt="Water splash slider image"
-          />
-        </SwiperSlide>
-      </Swiper>
-    </div>
+    <Swiper
+      slidesPerView={1}
+      navigation={true}
+      loop={true}
+      autoplay={{
+        delay: 2500,
+        disableOnInteraction: false,
+      }}
+      pagination={{ type: "bullets", clickable: true }}
+      modules={[Navigation, Pagination, Autoplay, Scrollbar, A11y]}
+      className="h-[100vh] md:h-[90vh] 2xl:h-[90vh] w-full"
+    >
+      <SwiperSlide>
+        <Image
+          className="block w-full h-full object-cover object-center"
+          src={Image3}
+          alt="Pouring water slider image"
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <Image
+          className="block w-full h-full object-cover object-center"
+          src={Image1}
+          alt="Water drop slider image"
+        />
+      </SwiperSlide>
+      <SwiperSlide>
+        <Image
+          className="block w-full h-full object-cover object-center"
+          src={Image2}
+          alt="Water splash slider image"
+        />
+      </SwiperSlide>
+    </Swiper>
   );
 };
 
