@@ -5,7 +5,6 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
-import toast from "react-hot-toast";
 
 const FormSchema = z.object({
   name: z.string().min(4).max(50),
@@ -46,11 +45,11 @@ const MainForm = () => {
     })
       .then((res) => {
         res.json();
-        toast.success(t("Заявку відправлено"));
+        //toast.success(t("Заявку відправлено"));
       })
       .catch((error) => {
         console.error("Error:", error);
-        toast.error(t("Помилка відправлення"));
+        //toast.error(t("Помилка відправлення"));
       })
       .finally(() => {
         setIsLoading(false);

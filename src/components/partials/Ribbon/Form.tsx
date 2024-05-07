@@ -3,7 +3,6 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import toast from "react-hot-toast";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 
@@ -36,11 +35,11 @@ const RibbonForm = () => {
     })
       .then((res) => {
         res.json();
-        toast.success(t("Заявку відправлено"));
+        //toast.success(t("Заявку відправлено"));
       })
       .catch((error) => {
         console.error("Error:", error);
-        toast.error(t("Помилка відправлення"));
+        //toast.error(t("Помилка відправлення"));
       })
       .finally(() => {
         setIsLoading(false);
