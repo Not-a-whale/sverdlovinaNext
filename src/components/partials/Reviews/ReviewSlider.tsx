@@ -11,6 +11,8 @@ type ReviewSliderProps = {
 };
 
 const ReviewSlider = ({ reviews }: ReviewSliderProps) => {
+  if (window === undefined) return;
+
   const getNumberOfSlides = () => {
     if (window === undefined) return;
     // if the width is less than 1536px then slidesPerView will be 3
