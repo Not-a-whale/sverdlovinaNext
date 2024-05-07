@@ -11,7 +11,6 @@ const Navigation = () => {
   // if it is check the scroll position
   // if the scroll position is greater than 0
   // add the class to the navbar
-  // else remove it
   if (typeof window !== "undefined") {
     window.addEventListener("scroll", () => {
       if (window.scrollY > 0) {
