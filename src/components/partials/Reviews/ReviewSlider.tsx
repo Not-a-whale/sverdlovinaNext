@@ -10,26 +10,26 @@ type ReviewSliderProps = {
   reviews: IReview[];
 };
 
-const ReviewSlider = ({ reviews }: ReviewSliderProps) => {
+const getNumberOfSlides = () => {
   if (window === undefined) return;
+  // if the width is less than 1536px then slidesPerView will be 3
+  // if the width is less than 1024px then slidesPerView will be 2
+  // if the width is less than 640px then slidesPerView will be 1
+  if (window.innerWidth > 1536) {
+    return 4;
+  } else if (window.innerWidth > 1024 && window.innerWidth < 1536) {
+    return 3;
+  } else if (window.innerWidth > 640 && window.innerWidth < 1024) {
+    return 2;
+  } else {
+    return 1;
+  }
+};
 
-  const getNumberOfSlides = () => {
-    if (window === undefined) return;
-    // if the width is less than 1536px then slidesPerView will be 3
-    // if the width is less than 1024px then slidesPerView will be 2
-    // if the width is less than 640px then slidesPerView will be 1
-    if (window.innerWidth > 1536) {
-      return 4;
-    } else if (window.innerWidth > 1024 && window.innerWidth < 1536) {
-      return 3;
-    } else if (window.innerWidth > 640 && window.innerWidth < 1024) {
-      return 2;
-    } else {
-      return 1;
-    }
-  };
-
+const ReviewSlider = ({ reviews }: ReviewSliderProps) => {
   const [slidesPerView, setSlidesPerView] = useState(getNumberOfSlides());
+
+  if (window === undefined) return;
 
   if (window && window.innerWidth < 1536) {
     window.addEventListener("resize", () => {
