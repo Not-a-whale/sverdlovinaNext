@@ -31,6 +31,7 @@ type IFormInput = z.infer<typeof FormSchema>;
 
 const ReviewForm = () => {
   const [previewImage, setPreviewImage] = useState<any>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const { formState, control, handleSubmit, getValues } = useForm<IFormInput>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
@@ -143,12 +144,13 @@ const ReviewForm = () => {
           )}
         />
         <button
-          className="btn bg-white text-background w-[98%] lg:w-[90%] text-lg"
+          className={`btn bg-white text-background w-[98%] lg:w-[90%] text-lg ${isLoading ? "btn-disabled" : ""}`}
           onClick={(formState) => {
             onSubmit(getValues());
           }}
+          disabled={isLoading}
         >
-          Відправити
+          {isLoading ? "Відправка..." : "Відправити"}
         </button>
       </form>
     </div>

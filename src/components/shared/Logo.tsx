@@ -18,7 +18,7 @@ const Logo = ({
 
   return (
     <Link
-      className={`flex gap-1 pl-4 md:pl-4 lg:pl-10 xl:pl-12 py-4 transform ${isEnlarged ? "scale-150" : ""}`}
+      className={`flex gap-1 pl-4 md:pl-4 lg:pl-10 py-4 transform ${isEnlarged ? "scale-150" : "xl:pl-[7.5%]"}`}
       href="/"
     >
       <Image src={MainLogo} alt="Logo" />
