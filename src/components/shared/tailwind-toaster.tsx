@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 
 export const TailwindToaster = () => {
   const t = useTranslations();
+  // @ts-ignore
   return (
     <Toaster position="top-right">
       {(toast) => (
