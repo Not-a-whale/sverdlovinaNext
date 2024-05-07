@@ -14,7 +14,7 @@ export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
   return (
     <div>
       <h1>Вам надійшла заявка від {firstName}</h1>
-      <p>Ім'я: {firstName}</p>
+      <p>Ім&#39;я: {firstName}</p>
       <p>Email: {email}</p>
       <p>Телефон: {phone}</p>
       Не забудьте відповісти на заявку!
