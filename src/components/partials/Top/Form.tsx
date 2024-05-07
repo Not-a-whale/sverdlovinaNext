@@ -68,40 +68,46 @@ const MainForm = () => {
         className={`flex flex-col items-center p-2 w-full pb-8`}
         onSubmit={handleSubmit(onSubmit)}
       >
-        <input
-          {...register("name")}
-          type="text"
-          placeholder="Ваше ім'я"
-          className={`input input-bordered ${formState.errors.name ? "input-error" : "input-info"} bg-white/80 w-full max-w-[90%]`}
-        />
-        {formState.errors.name && (
-          <p className="text-red-600 text-[1rem] !p-0 !m-1">
-            {t("name_required")}
-          </p>
-        )}
-        <input
-          type="text"
-          {...register("phone")}
-          placeholder="Номер телефону"
-          className={`input input-bordered ${formState.errors.name ? "input-error" : "input-info"} bg-white/80 w-full max-w-[90%]`}
-        />
-        {formState.errors.phone && (
-          <p className="text-red-600 text-[1rem] !p-0 !m-1">
-            {t("phone_required_invalid")}
-          </p>
-        )}
-        <input
-          type="text"
-          id="email"
-          placeholder="Email"
-          className={`input input-bordered ${formState.errors.name ? "input-error" : "input-info"} bg-white/80 w-full max-w-[90%]`}
-          {...register("email")}
-        />
-        {formState.errors.email && (
-          <p className="text-red-600 text-[1rem] !p-0 !m-1">
-            {t("email_required_invalid")}
-          </p>
-        )}
+        <div className="relative bg-transparent  w-full max-w-[90%] rounded-lg pb-8">
+          <input
+            {...register("name")}
+            type="text"
+            placeholder="Ваше ім'я"
+            className={`input input-bordered ${formState.errors.name ? "input-error" : "input-info"} w-full bg-white/80`}
+          />
+          {formState.errors.name && (
+            <p className="absolute text-red-600 text-[1rem] !p-0 !m-1">
+              {t("name_required")}
+            </p>
+          )}
+        </div>
+        <div className="relative bg-transparent w-full max-w-[90%] rounded-lg pb-8">
+          <input
+            type="text"
+            {...register("phone")}
+            placeholder="Номер телефону"
+            className={`input input-bordered ${formState.errors.name ? "input-error" : "input-info"} w-full bg-white/80`}
+          />
+          {formState.errors.phone && (
+            <p className="absolute text-red-600 text-[1rem] !p-0 !m-1">
+              {t("phone_required_invalid")}
+            </p>
+          )}
+        </div>
+        <div className="relative bg-transparent w-full max-w-[90%] rounded-lg pb-8">
+          <input
+            type="text"
+            id="email"
+            placeholder="Email"
+            className={`input input-bordered ${formState.errors.name ? "input-error" : "input-info"} w-full bg-white/80`}
+            {...register("email")}
+          />
+          {formState.errors.email && (
+            <p className="absolute text-red-600 text-[1rem] !p-0 !m-1">
+              {t("email_required_invalid")}
+            </p>
+          )}
+        </div>
         <button
           className={`btn ${isLoading ? "btn-disabled" : "btn-info"} text-white w-full max-w-[90%] text-lg`}
           type="submit"

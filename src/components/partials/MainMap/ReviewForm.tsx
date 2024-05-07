@@ -66,7 +66,7 @@ const ReviewForm = () => {
   };
 
   return (
-    <div className="absolute z-20 mx-auto lg:m-0 right-[2.5%] lg:right-[7.5%] left-[2.5%] lg:left-auto top-[-30%] md:top-[-20%] bg-background w-[85%] md:w-[50%] lg:w-[36rem] rounded-xl">
+    <div className="absolute z-20 mx-auto lg:m-0 right-[2.5%] lg:right-[7.5%] left-[2.5%] lg:left-auto bottom-[30%] md:bottom-[15%] bg-background w-[85%] md:w-[50%] lg:w-[36rem] rounded-xl">
       {" "}
       <h2 className="font-['Futura'] align-middle text-center leading-[25px] my-4 text-2xl text-white font-bold">
         Залишити відгук
@@ -139,7 +139,7 @@ const ReviewForm = () => {
             <textarea
               {...field}
               placeholder="Відгук про компанію"
-              className="input input-bordered input-info bg-white w-[98%] lg:w-[90%] py-2 min-h-32"
+              className="input input-bordered input-info bg-white w-[98%] lg:w-[90%] py-2 lg:min-h-32 min-h-28"
             />
           )}
         />

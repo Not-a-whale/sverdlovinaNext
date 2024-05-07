@@ -1,10 +1,9 @@
 "use client";
 
 import Logo from "@/components/shared/Logo";
-import Image from "next/image";
-import Phone from "@/assets/images/phone.svg";
 import FlagSelect from "@/components/Navigation/FlagSelect";
 import { useTranslations } from "next-intl";
+import { PhoneLink } from "@/components/shared/phone-link";
 
 type MobileProps = {
   isScrolled: boolean;
@@ -51,10 +50,7 @@ export const Desktop = ({ isScrolled }: MobileProps) => {
             className="flex items-center justify-between gap-2
           mx-auto px-1"
           >
-            <Image src={Phone} alt="Phone" />
-            <a className="font-bold" href="tel:+380673623523">
-              +380673623523
-            </a>
+            <PhoneLink />
           </div>
         </div>
         <div className="flex-[20%]">
