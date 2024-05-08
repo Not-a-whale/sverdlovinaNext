@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
 import { NextIntlClientProvider } from "next-intl";
+import { TailwindToaster } from "@/components/shared/tailwind-toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
+          <TailwindToaster />
         </NextIntlClientProvider>
       </body>
     </html>
