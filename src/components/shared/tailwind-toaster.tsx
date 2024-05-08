@@ -6,8 +6,11 @@ import { useTranslations } from "next-intl";
 
 export const TailwindToaster = () => {
   const t = useTranslations();
-  // @ts-ignore
-  const value = resolveValue(toast.message);
+
+  const value = (meassage: string) => {
+    // @ts-ignore
+    return resolveValue(meassage);
+  };
   return (
     <Toaster position="top-right">
       {(toast) => (
@@ -23,7 +26,7 @@ export const TailwindToaster = () => {
           leaveTo="opacity-0 scale-75"
         >
           <ToastIcon toast={toast} />
-          <p className="px-2 text-sm">{value}</p>
+          <p className="px-2 text-sm">{value(toast.message as string)}</p>
         </Transition>
       )}
     </Toaster>

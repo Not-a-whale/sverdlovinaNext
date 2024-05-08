@@ -11,40 +11,51 @@ import pic8 from "@/assets/images/services_pics/tampones.svg";
 import Image from "next/image";
 
 import styles from "./index.module.scss";
+import { useTranslations } from "next-intl";
+import { Link } from "@/navigation";
 
 const Services = () => {
+  const t = useTranslations("Index");
   const services = [
     {
-      title: "Буріння свердловин",
+      title: t("Буріння_свердловин"),
       img: pic1,
+      href: "/drilling",
     },
     {
-      title: "БУРІННЯ ГІДРОЕКОЛОГІЧНИХ СВЕРДЛОВИН НА ВОДУ",
+      title: t("БУРІННЯ_ГІДРОЕКОЛОГІЧНИХ_СВЕРДЛОВИН_НА_ВОДУ"),
       img: pic2,
+      href: "/hydro-eco-drilling",
     },
     {
-      title: "БУРІННЯ СВЕРДЛОВИН ПІД БУРОНАБИВНІ ПАЛІ",
+      title: t("БУРІННЯ_СВЕРДЛОВИН_ПІД_БУРОНАБИВНІ_ПАЛІ"),
       img: pic3,
+      href: "/pillar-drilling",
     },
     {
-      title: "ГІДРОЕКОЛОГІЧНІ РОБОТИ",
+      title: t("ГІДРОЕКОЛОГІЧНІ_РОБОТИ"),
       img: pic4,
+      href: "/hydro-eco-work",
     },
     {
-      title: "ІНЖЕНЕРНО-ГЕОЕКОЛОГІЧНІ \n" + "ТА ГЕОДЕЗИЧНІ \n" + "ВИШУКУВАННЯ",
+      title: t("інж_виш"),
       img: pic5,
+      href: "/engineer-geo-find",
     },
     {
-      title: "БУДІВЕЛЬНЕ ВОДОЗНИЖЕННЯ",
+      title: t("БУДІВЕЛЬНЕ_ВОДОЗНИЖЕННЯ"),
       img: pic6,
+      href: "/build-water-lowering",
     },
     {
-      title: "ЕЛЕКТРОХІМЗАХИСТ",
+      title: t("ЕЛЕКТРОХІМЗАХИСТ"),
       img: pic7,
+      href: "/electro-chem-protection",
     },
     {
-      title: "ТАМПОНУВАННЯ СВЕРДЛОВИНИ",
+      title: "ТАМПОНУВАННЯ_СВЕРДЛОВИНИ",
       img: pic8,
+      href: "/well-casing",
     },
   ];
   return (
@@ -55,9 +66,10 @@ const Services = () => {
         {services.map((service, index) => {
           if (index === 4) {
             return (
-              <div
+              <Link
                 key={index}
                 className="flex flex-col items-center justify-center text-center"
+                href={`/services/${service.href}`}
               >
                 <div
                   className={`flex w-[10rem]
@@ -75,14 +87,15 @@ const Services = () => {
                 <p className="text-primary font-bold text-lg mt-5">
                   {service.title}
                 </p>
-              </div>
+              </Link>
             );
           }
 
           return (
-            <div
+            <Link
               key={index}
               className="flex flex-col items-center justify-center text-center"
+              href={`/services/${service.href}`}
             >
               <div
                 className={`flex flex-col items-center justify-center
@@ -98,7 +111,7 @@ const Services = () => {
               <p className="text-primary font-bold text-lg mt-5 uppercase">
                 {service.title}
               </p>
-            </div>
+            </Link>
           );
         })}
       </div>
