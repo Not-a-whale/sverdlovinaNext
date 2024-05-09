@@ -1,12 +1,14 @@
 import MainForm from "@/components/partials/Top/Form";
+import React from "react";
 
 type TopProps = {
   children?: React.ReactNode;
+  backgroundImg?: string;
   heading: string;
-  description: string;
+  description: string | React.ReactNode;
 };
 
-const Top = ({ children, heading, description }: TopProps) => {
+const Top = ({ children, heading, backgroundImg, description }: TopProps) => {
   const handleFormSubmit = (data: {
     name: string;
     phone: string;
@@ -16,7 +18,18 @@ const Top = ({ children, heading, description }: TopProps) => {
   };
 
   return (
-    <div className="h-[100vh] md:h-[90vh] 2xl:h-[90vh] relative">
+    <div
+      className="h-[100vh] md:h-[90vh] 2xl:h-[90vh] relative"
+      style={{
+        ...(backgroundImg
+          ? {
+              backgroundImage: `url("../src/assets/images/top_background/${backgroundImg}")`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }
+          : { backgroundColor: "transparent" }),
+      }}
+    >
       <div
         className="absolute flex
         gap-6

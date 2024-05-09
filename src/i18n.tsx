@@ -9,6 +9,9 @@ export default getRequestConfig(async ({ locale }) => {
   if (!locales.includes(locale as any)) notFound();
 
   return {
+    defaultTranslationValues: {
+      important: (chunks) => <b>{chunks}</b>,
+    },
     messages: (await import(`../messages/${locale}.json`)).default,
   };
 });
