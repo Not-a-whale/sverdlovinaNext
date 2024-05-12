@@ -19,11 +19,10 @@ const Top = ({ children, heading, backgroundImg, description }: TopProps) => {
 
   return (
     <div
-      className="h-[100vh] md:h-[90vh] 2xl:h-[90vh] relative"
       style={{
         ...(backgroundImg
           ? {
-              backgroundImage: `url("../src/assets/images/top_background/${backgroundImg}")`,
+              backgroundImage: `url("/background_images/background-${backgroundImg}.jpeg")`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }
@@ -31,19 +30,23 @@ const Top = ({ children, heading, backgroundImg, description }: TopProps) => {
       }}
     >
       <div
-        className="absolute flex
+        className="flex
         gap-6
         lg:gap-0
         flex-col
         lg:flex-row
         mx-auto
+        items-center
         justify-between md:w-[75%] lg:w-[90%] left-[5%] right-[5%]
-        z-20 lg:top-1/2 transform translate-y-[15%] lg:-translate-y-[50%]"
+        z-20 transform
+        py-24
+        lg:min-h-[80vh]
+        "
       >
         <div className="max-w-[90%] lg:max-w-[45%] mx-auto">
           <h1
             className="font-['Futura']
-            text-[2rem]
+            text-[2.5rem]
             lg:text-left
             text-center
             mb-4
@@ -54,13 +57,13 @@ const Top = ({ children, heading, backgroundImg, description }: TopProps) => {
           </h1>
           <p
             className="md:my-4 lg:my-8
-            text-center text-white text-[1.3rem] md:text-[1.5rem]
+            text-center text-white text-[1.2rem] md:text-[1.5rem]
             lg:text-left"
           >
             {description}
           </p>
         </div>
-        <div className="flex w-[90%] lg:w-[45%] mx-auto">
+        <div className="flex flex-col justify-center w-[90%] lg:w-[45%] mx-auto ">
           <MainForm />
         </div>
       </div>

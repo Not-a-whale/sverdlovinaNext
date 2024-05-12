@@ -5,7 +5,8 @@ import Image from "next/image";
 
 import Ukraine from "@/assets/images/Ukraine.png";
 import Russia from "@/assets/images/russia.png";
-import { useRouter } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
+import { usePathname } from "@/navigation";
 
 const countries = [
   { name: "Українська", code: "uk", flag: Ukraine },
@@ -17,10 +18,14 @@ type FlagSelectProps = {
 };
 
 const FlagSelect = ({ isMobile }: FlagSelectProps) => {
-  const [selectedCountry, setSelectedCountry] = React.useState(countries[0]);
-  const selectionClass = isMobile ? "flag-list-mobile" : "flag-list";
-
+  const params = useParams();
   const router = useRouter();
+  const path = usePathname();
+
+  const [selectedCountry, setSelectedCountry] = React.useState(
+    countries.find((country) => country.code === params.locale) || countries[0],
+  );
+  const selectionClass = isMobile ? "flag-list-mobile" : "flag-list";
 
   const handleClick = () => {
     const list = document.getElementById(selectionClass) as HTMLUListElement;
@@ -35,7 +40,7 @@ const FlagSelect = ({ isMobile }: FlagSelectProps) => {
     if (!list) return;
     list.classList.add("hidden");
     startTransition(() => {
-      router.replace(`/${country.code}`);
+      router.push(`/${country.code}${path}`);
     });
   };
 

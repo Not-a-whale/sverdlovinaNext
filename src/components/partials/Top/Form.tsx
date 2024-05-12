@@ -60,7 +60,7 @@ const MainForm = () => {
   };
 
   return (
-    <div className="w-full lg:w-[75%] 2xl:w-1/2 ml-auto flex flex-col items-center bg-white/20 backdrop-blur-[120px] rounded-[13px]">
+    <div className="w-full lg:w-[75%] 2xl:w-1/2 ml-auto flex flex-col items-center justify-center bg-white/20 backdrop-blur-[120px] rounded-[13px] h-fit">
       <h2 className="font-['Futura'] align-middle text-center leading-[25px] my-4 text-2xl text-white">
         Замовити <br /> консультацію
       </h2>
