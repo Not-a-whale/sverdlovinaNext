@@ -42,7 +42,7 @@ const Top = ({ children, heading, backgroundImg, description }: TopProps) => {
         justify-between md:w-[75%] lg:w-[90%] left-[0] right-[0]
         z-20 transform
         py-24
-        lg:min-h-[80vh]
+        lg:min-h-[90vh]
         "
       >
         <div className="max-w-[90%] lg:max-w-[45%] mx-auto">
