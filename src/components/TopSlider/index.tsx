@@ -35,7 +35,7 @@ const TopSlider = () => {
       }}
       pagination={{ type: "bullets", clickable: true }}
       modules={[Navigation, Pagination, Autoplay, Scrollbar, A11y]}
-      className="h-full w-full"
+      className="h-full w-full !absolute top-0 left-0 z-0"
     >
       <SwiperSlide>
         <Image

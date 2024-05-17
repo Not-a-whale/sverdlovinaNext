@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getRequestConfig } from "next-intl/server";
+import { richTextConfig } from "@/shared/consts/rich-text-config";
 
 // Can be imported from a shared config
 const locales = ["uk", "ru"];
@@ -10,7 +11,7 @@ export default getRequestConfig(async ({ locale }) => {
 
   return {
     defaultTranslationValues: {
-      important: (chunks) => <b>{chunks}</b>,
+      ...richTextConfig,
     },
     messages: (await import(`../messages/${locale}.json`)).default,
   };

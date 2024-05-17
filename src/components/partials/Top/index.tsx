@@ -28,16 +28,18 @@ const Top = ({ children, heading, backgroundImg, description }: TopProps) => {
             }
           : { backgroundColor: "transparent" }),
       }}
+      className="relative"
     >
       <div
         className="flex
+        relative
         gap-6
         lg:gap-0
         flex-col
         lg:flex-row
         mx-auto
         items-center
-        justify-between md:w-[75%] lg:w-[90%] left-[5%] right-[5%]
+        justify-between md:w-[75%] lg:w-[90%] left-[0] right-[0]
         z-20 transform
         py-24
         lg:min-h-[80vh]
