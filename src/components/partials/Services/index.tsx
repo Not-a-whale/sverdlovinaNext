@@ -53,16 +53,16 @@ const Services = () => {
       href: "/electro-chem-protection",
     },
     {
-      title: "ТАМПОНУВАННЯ_СВЕРДЛОВИНИ",
+      title: t("ТАМПОНУВАННЯ_СВЕРДЛОВИНИ"),
       img: pic8,
       href: "/well-casing",
     },
   ];
   return (
     <>
-      <SectionHeading title={"Види послуг"} />;
+      <SectionHeading title={t("Види послуг")} />;
       {/*4 column css grid that would collapse into two column grid when the viewport is tablet*/}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start md:grid-cols-4 md:gap-20 mx-[15%]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 items-start md:gap-20 mx-[15%]">
         {services.map((service, index) => {
           if (index === 4) {
             return (
@@ -72,8 +72,11 @@ const Services = () => {
                 href={`/services/${service.href}`}
               >
                 <div
-                  className={`flex w-[10rem]
-                h-[10rem] flex-col items-center justify-center
+                  className={`flex                 
+                  w-[7rem]
+                h-[7rem]
+                md:w-[10rem]
+                md:h-[10rem] flex-col items-center justify-center
                 text-center rounded-lg  ${styles.__image}`}
                 >
                   <div className={`w-[60px] h-[60px] relative`}>
@@ -100,8 +103,10 @@ const Services = () => {
               <div
                 className={`flex flex-col items-center justify-center
                text-center
-                w-[10rem]
-                h-[10rem]
+                w-[7rem]
+                h-[7rem]
+                md:w-[10rem]
+                md:h-[10rem]
                 rounded-lg
                 ${styles.__image}
                 `}

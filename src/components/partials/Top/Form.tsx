@@ -4,8 +4,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { z } from "zod";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import toast from "react-hot-toast";
+import { richTextConfig } from "@/shared/consts/rich-text-config";
 
 const FormSchema = z.object({
   name: z.string().min(4).max(50),
@@ -17,6 +18,11 @@ type IFormInput = z.infer<typeof FormSchema>;
 
 const MainForm = () => {
   const t = useTranslations("Index");
+  const aboutUs = t.rich(`Замовити консультацію`, {
+    ...richTextConfig,
+    break: (chunks: ReactNode) => <br />,
+  });
+
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const {
@@ -62,7 +68,7 @@ const MainForm = () => {
   return (
     <div className="w-full lg:w-[75%] 2xl:w-1/2 ml-auto flex flex-col items-center justify-center bg-white/20 backdrop-blur-[120px] rounded-[13px] h-fit">
       <h2 className="font-['Futura'] align-middle text-center leading-[25px] my-4 text-2xl text-white">
-        Замовити <br /> консультацію
+        {aboutUs}
       </h2>
       <form
         className={`flex flex-col items-center p-2 w-full pb-8`}
@@ -72,7 +78,7 @@ const MainForm = () => {
           <input
             {...register("name")}
             type="text"
-            placeholder="Ваше ім'я"
+            placeholder={t("Ваше ім'я")}
             className={`input input-bordered ${formState.errors.name ? "input-error" : "input-info"} w-full bg-white/80`}
           />
           {formState.errors.name && (
@@ -85,7 +91,7 @@ const MainForm = () => {
           <input
             type="text"
             {...register("phone")}
-            placeholder="Номер телефону"
+            placeholder={t("Номер телефона")}
             className={`input input-bordered ${formState.errors.name ? "input-error" : "input-info"} w-full bg-white/80`}
           />
           {formState.errors.phone && (

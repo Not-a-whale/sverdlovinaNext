@@ -1,9 +1,11 @@
 "use client";
 
-import RibbonForm from "@/components/partials/Ribbon/Form";
 import Logo from "@/components/shared/Logo";
+import { useTranslations } from "next-intl";
 
 const Ribbon = () => {
+  const t = useTranslations("Index");
+
   return (
     <div
       className="
@@ -31,34 +33,26 @@ const Ribbon = () => {
             lg:text-left
             text-center"
           >
-            Виникли запитання?
+            {t("ВИНИКЛИ ЗАПИТАННЯ")}
           </h2>
           <p
             className="text-white text-xl
             lg:text-left
             text-center"
           >
-            Замов консультацію у нашого <br /> спеціаліста.
+            {t("consultation")}
           </p>
         </div>
         <button
           onClick={() => {
             // @ts-ignore
-            return document.getElementById("my_modal_4").showModal();
+            return document.getElementById("main_modal").showModal();
           }}
           className="btn bg-white text-background mt-4 lg:m-0 w-full md:w-1/2 max-w-xs xl:max-w-[90%] text-lg"
         >
-          Надіслати заявку
+          {t("Надіслати заявку")}
         </button>
       </div>
-      <dialog id="my_modal_4" className="modal">
-        <div className="modal-box">
-          <RibbonForm />
-        </div>
-        <form method="dialog" className="modal-backdrop">
-          <button>close</button>
-        </form>
-      </dialog>
     </div>
   );
 };

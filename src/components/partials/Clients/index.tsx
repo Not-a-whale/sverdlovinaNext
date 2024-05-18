@@ -7,13 +7,15 @@ import Image2 from "@/assets/images/partners/Renome.png";
 import Image3 from "@/assets/images/partners/Pan_Kurchak.png";
 import Image4 from "@/assets/images/partners/LutskSantekhMontazh.png";
 import Image5 from "@/assets/images/partners/Zhitlobud.png";
+import { useTranslations } from "next-intl";
 
 const Clients = () => {
+  const t = useTranslations("Index");
   return (
     <>
-      <SectionHeading title={"Нам довіряють"} />
+      <SectionHeading title={t("Нам довіряють")} />
       {/*Grid container with one row for as many items as possible, for tablet - 2 rows, mobile - 1 column*/}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 items-center justify-items-center gap-10 md:gap-20 mx-[7.5%]">
+      <div className="grid grid-cols-[200px] md:grid-cols-2 lg:grid-cols-5 items-center justify-items-center gap-10 md:gap-20 mx-[7.5%] justify-center">
         <Link href="http://pankurchak.ua/">
           <Image src={Image3} alt="Pan kurchak image" />
         </Link>

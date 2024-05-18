@@ -1,6 +1,6 @@
 import { PhoneLink } from "@/components/shared/phone-link";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import { Link } from "@/navigation";
 
 const Footer = () => {
   const t = useTranslations("Index");
@@ -9,16 +9,24 @@ const Footer = () => {
       <div className="text-sm breadcrumbs *:text-lg hidden lg:block">
         <ul>
           <li>
-            <Link href={"/about"}>{t("Про_компанію")}</Link>
+            <Link style={{ textDecoration: "none" }} href={"/about"}>
+              {t("Про_компанію")}
+            </Link>
           </li>
           <li>
-            <Link href={"/services"}>{t("Послуги")}</Link>
+            <Link style={{ textDecoration: "none" }} href={"/services"}>
+              {t("Послуги")}
+            </Link>
           </li>
           <li>
-            <Link href={"/gallery"}>{t("Фотогалерея")}</Link>
+            <Link style={{ textDecoration: "none" }} href={"/gallery"}>
+              {t("Фотогалерея")}
+            </Link>
           </li>
           <li>
-            <Link href={"/contacts"}>{t("Контакти")}</Link>
+            <Link style={{ textDecoration: "none" }} href={"/contacts"}>
+              {t("Контакти")}
+            </Link>
           </li>
         </ul>
       </div>
