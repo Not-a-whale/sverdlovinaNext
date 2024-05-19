@@ -14,8 +14,7 @@ export default function Home() {
   const t = useTranslations("Index");
 
   const heading = t("основний_заголовок");
-  const description =
-    "В м.Києві, Київській, Житомирській, Черкаській, Вінницькій, Кіровоградській, Рівненській, Полтавській, Сумській, Чернігівській Областях.";
+  const description = t("додатковий_заголовок");
 
   return (
     <main>
