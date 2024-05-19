@@ -9,14 +9,6 @@ type TopProps = {
 };
 
 const Top = ({ children, heading, backgroundImg, description }: TopProps) => {
-  const handleFormSubmit = (data: {
-    name: string;
-    phone: string;
-    email: string;
-  }) => {
-    console.log(data);
-  };
-
   return (
     <div
       style={{

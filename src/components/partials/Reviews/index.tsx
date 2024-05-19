@@ -1,14 +1,15 @@
 import SectionHeading from "@/components/SectionHeading";
 import { IReview } from "@/shared/interfaces/review.interface";
-import ReviewSlider from "@/components/partials/Reviews/ReviewSlider";
+
+import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 
-const getData = async (): Promise<IReview[] | undefined> => {
-  console.log(
-    "process.env.NEXT_PUBLIC_URL",
-    `${process.env.NEXT_PUBLIC_URL}api`,
-  );
+const ReviewSlider = dynamic(
+  () => import("@/components/partials/Reviews/ReviewSlider"),
+  { ssr: false },
+);
 
+const getData = async (): Promise<IReview[] | undefined> => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api`, {
       cache: "no-store",

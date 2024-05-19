@@ -29,7 +29,6 @@ const FlagSelect = ({ isMobile }: FlagSelectProps) => {
 
   const handleClick = () => {
     const list = document.getElementById(selectionClass) as HTMLUListElement;
-    console.log(list);
     if (!list) return;
     list.classList.toggle("hidden");
   };

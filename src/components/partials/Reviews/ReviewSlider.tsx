@@ -41,7 +41,6 @@ const ReviewSlider = ({ reviews }: ReviewSliderProps) => {
 
   if (window && window.innerWidth < 1536) {
     window.addEventListener("resize", () => {
-      console.log("resize", getNumberOfSlides());
       setSlidesPerView(getNumberOfSlides());
     });
   }

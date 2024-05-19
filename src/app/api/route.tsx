@@ -28,7 +28,6 @@ export const POST = async (req: NextRequest) => {
 
     if (typeof value == "object") {
       image = Date.now() + value.name;
-      console.log("done");
       const buffer = Buffer.from(await value.arrayBuffer());
       const stream = Readable.from(buffer);
       const uploadStream = bucket.openUploadStream(image, {});

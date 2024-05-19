@@ -6,8 +6,6 @@ type ReviewSlideProps = {
 };
 
 const RewiewSlide = ({ review }: ReviewSlideProps) => {
-  console.log(`https://sverdlovina-next.vercel.app/api${review.imageUrl}`);
-
   const imageLoader = ({ src, width, quality }: ImageLoaderProps) => {
     return `${src}?w=${width}&q=${quality || 75}`;
   };

@@ -24,7 +24,6 @@ async function connectToDb() {
     bucketName: "images",
   });
 
-  console.log("Connected to the Database");
   return { client, bucket };
 }
 
