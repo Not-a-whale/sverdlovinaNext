@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Pagination } from "swiper/modules";
 import RewiewSlide from "@/components/partials/Reviews/RewiewSlide";
 import { useState } from "react";
+import { backupReviews } from "@/shared/consts/backup-reviews";
 
 type ReviewSliderProps = {
   reviews: IReview[];
@@ -27,6 +28,13 @@ const getNumberOfSlides = () => {
 };
 
 const ReviewSlider = ({ reviews }: ReviewSliderProps) => {
+  const backedupReviews =
+    reviews && reviews.length > 0
+      ? reviews.map((review) => ({
+          ...review,
+          imageUrl: `${process.env.NEXT_PUBLIC_URL}/api${review.imageUrl}`,
+        }))
+      : backupReviews;
   const [slidesPerView, setSlidesPerView] = useState(getNumberOfSlides());
 
   if (window === undefined) return;
@@ -49,10 +57,14 @@ const ReviewSlider = ({ reviews }: ReviewSliderProps) => {
       modules={[FreeMode, Pagination]}
       className="mySwiper transform translate-y-[-4rem] cursor-grabbing"
     >
-      {reviews &&
-        reviews.map((review, index) => (
-          <SwiperSlide key={index}>
-            <RewiewSlide review={review} />
+      {backedupReviews &&
+        backedupReviews.map((review, index) => (
+          <SwiperSlide key={index} className="lg:max-w-[25%] !h-auto !flex">
+            <RewiewSlide
+              review={{
+                ...review,
+              }}
+            />
           </SwiperSlide>
         ))}
     </Swiper>

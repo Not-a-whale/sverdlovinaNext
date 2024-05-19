@@ -3,4 +3,5 @@ export interface IReview {
   review: string;
   city: string;
   imageUrl: string;
+  email?: string;
 }
