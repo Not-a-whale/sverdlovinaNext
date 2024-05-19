@@ -1,9 +1,10 @@
 "use client";
 
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 
 const MAX_FILE_SIZE = 5000000;
 const ACCEPTED_IMAGE_TYPES = [
@@ -30,18 +31,20 @@ const FormSchema = z.object({
 type IFormInput = z.infer<typeof FormSchema>;
 
 const ReviewForm = () => {
+  const t = useTranslations("Index");
   const [previewImage, setPreviewImage] = useState<any>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const { formState, control, handleSubmit, getValues } = useForm<IFormInput>({
-    resolver: zodResolver(FormSchema),
-    defaultValues: {
-      name: "",
-      review: "",
-      email: "",
-      city: "",
-      imageUrl: null,
-    },
-  });
+  const { formState, control, handleSubmit, register, getValues } =
+    useForm<IFormInput>({
+      resolver: zodResolver(FormSchema),
+      defaultValues: {
+        name: "",
+        review: "",
+        email: "",
+        city: "",
+        imageUrl: null,
+      },
+    });
 
   const handleFileChange = (e: any) => {
     setPreviewImage(e.target.files[0]);
@@ -76,81 +79,48 @@ const ReviewForm = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <div className="flex justify-between gap-4 w-[98%] lg:w-[90%] flex-col md:flex-row">
-          <Controller
-            name="name"
-            control={control}
-            render={({ field }) => (
-              <input
-                {...field}
-                type="text"
-                placeholder="Ваше ім'я"
-                className="input input-bordered input-info bg-white w-full max-w-[100%] xl:max-w-[49%]"
-              />
-            )}
+          <input
+            {...register("name")}
+            type="text"
+            placeholder={t("Ваше ім'я")}
+            className="input input-bordered input-info bg-white w-full max-w-[100%] xl:max-w-[49%]"
           />
-          <Controller
-            name="city"
-            control={control}
-            render={({ field }) => (
-              <input
-                {...field}
-                type="text"
-                placeholder="Ваше місто"
-                className="input input-bordered input-info bg-white w-full max-w-[100%] xl:max-w-[49%]"
-              />
-            )}
+          <input
+            {...register("city")}
+            type="text"
+            placeholder={t("Ваше місто")}
+            className="input input-bordered input-info bg-white w-full max-w-[100%] xl:max-w-[49%]"
           />
         </div>
-        <Controller
-          name="email"
-          control={control}
-          render={({ field }) => (
-            <input
-              {...field}
-              type="text"
-              placeholder="Email"
-              className="input input-bordered input-info bg-white w-[98%] lg:w-[90%]"
-            />
-          )}
+        <input
+          {...register("email")}
+          type="text"
+          placeholder={t("Email")}
+          className="input input-bordered input-info bg-white w-[98%] lg:w-[90%]"
         />
         <div className="flex items-center justify-between w-[98%] lg:w-[90%] gap-4">
           <label htmlFor="chooseFile" className="btn">
-            Виберіть фото
+            {t("Виберіть фото")}
           </label>
-          <Controller
-            name="imageUrl"
-            control={control}
-            render={({ field }) => (
-              <input
-                {...field}
-                type="file"
-                id="chooseFile"
-                accept=".jpg, .jpeg, .png, .webp"
-                onChange={handleFileChange}
-                className="file-input file-input-bordered [&::file-selector-button]:hidden w-full p-[10px]"
-              />
-            )}
+          <input
+            {...register("imageUrl")}
+            type="file"
+            id="chooseFile"
+            accept=".jpg, .jpeg, .png, .webp"
+            onChange={handleFileChange}
+            className="file-input file-input-bordered [&::file-selector-button]:hidden w-full p-[10px]"
           />
         </div>
-        <Controller
-          name="review"
-          control={control}
-          render={({ field }) => (
-            <textarea
-              {...field}
-              placeholder="Відгук про компанію"
-              className="input input-bordered input-info bg-white w-[98%] lg:w-[90%] py-2 lg:min-h-32 min-h-28"
-            />
-          )}
+        <textarea
+          {...register("review")}
+          placeholder={t("Відгук про компанію")}
+          className="input input-bordered input-info bg-white w-[98%] lg:w-[90%] py-2 lg:min-h-32 min-h-28"
         />
         <button
           className={`btn bg-white text-background w-[98%] lg:w-[90%] text-lg ${isLoading ? "btn-disabled" : ""}`}
-          onClick={(formState) => {
-            onSubmit(getValues());
-          }}
           disabled={isLoading}
         >
-          {isLoading ? "Відправка..." : "Відправити"}
+          {isLoading ? t("Відправка...") : t("Відправити")}
         </button>
       </form>
     </div>

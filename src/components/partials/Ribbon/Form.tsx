@@ -15,7 +15,11 @@ const FormSchema = z.object({
 
 type IFormInput = z.infer<typeof FormSchema>;
 
-const RibbonForm = () => {
+type RibbonFormProps = {
+  onClose?: () => void;
+};
+
+const RibbonForm = ({ onClose }: RibbonFormProps) => {
   const t = useTranslations("Index");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { formState, control, register, clearErrors, reset, handleSubmit } =
@@ -30,6 +34,10 @@ const RibbonForm = () => {
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     setIsLoading(true);
+    //@ts-ignore
+    if (onClose) {
+      setTimeout(() => onClose(), 1000);
+    }
     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/send`, {
       method: "POST",
       body: JSON.stringify(data),
@@ -59,40 +67,46 @@ const RibbonForm = () => {
         className="flex flex-col items-center space-y-4 p-2 w-full pb-8"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <input
-          {...register("name")}
-          type="text"
-          placeholder="Ваше ім'я"
-          className="input input-bordered input-info bg-white w-full max-w-xs xl:max-w-[90%]"
-        />
-        {formState.errors.name && (
-          <p className="text-red-600 text-[1rem] !p-1 !m-1">
-            {t("name_required")}
-          </p>
-        )}
-        <input
-          {...register("email")}
-          type="text"
-          placeholder="Email"
-          className="input input-bordered input-info bg-white w-full max-w-xs xl:max-w-[90%]"
-        />
-        {formState.errors.email && (
-          <p className="text-red-600 text-[1rem] !p-1 !m-1">
-            {t("email_required")}
-          </p>
-        )}
-        <textarea
-          {...register("message")}
-          placeholder="Ваше повідомлення"
-          className="input input-bordered input-info bg-white w-full max-w-xs xl:max-w-[90%] py-2 min-h-32"
-        />
-        {formState.errors.message && (
-          <p className="text-red-600 text-[1rem] !p-1 !m-1">
-            {t("message_required")}
-          </p>
-        )}
+        <div className="relative bg-transparent  w-full max-w-[100%] rounded-lg pb-6">
+          <input
+            {...register("name")}
+            type="text"
+            placeholder="Ваше ім'я"
+            className="input input-bordered input-info bg-white w-full max-w-xs xl:max-w-[100%]"
+          />
+          {formState.errors.name && (
+            <p className="absolute text-red-600 text-[1rem] !p-1 !pt-0 !m-1 !mt-0">
+              {t("name_required_invalid")}
+            </p>
+          )}
+        </div>
+        <div className="relative bg-transparent  w-full max-w-[100%] rounded-lg pb-6 !mt-[0.4rem]">
+          <input
+            {...register("email")}
+            type="text"
+            placeholder="Email"
+            className="input input-bordered input-info bg-white w-full max-w-xs xl:max-w-[100%]"
+          />
+          {formState.errors.email && (
+            <p className="absolute text-red-600 text-[1rem] !p-1 !pt-0 !m-1 !mt-0">
+              {t("email_required_invalid")}
+            </p>
+          )}
+        </div>
+        <div className="relative bg-transparent  w-full max-w-[100%] rounded-lg pb-6 !mt-[0.4rem]">
+          <textarea
+            {...register("message")}
+            placeholder="Ваше повідомлення"
+            className="input input-bordered input-info bg-white w-full max-w-xs xl:max-w-[100%] py-2 min-h-32"
+          />
+          {formState.errors.message && (
+            <p className="absolute text-red-600 text-[1rem] !p-1 !pt-0 !m-1 !mt-0">
+              {t("message_required_invalid")}
+            </p>
+          )}
+        </div>
         <button
-          className={`btn ${isLoading ? "btn-disabled" : "btn-info"} text-white w-full max-w-[90%] text-lg`}
+          className={`btn ${isLoading ? "btn-disabled" : "btn-info"} text-white w-full max-w-[100%] text-lg`}
           type="submit"
           disabled={isLoading}
         >
