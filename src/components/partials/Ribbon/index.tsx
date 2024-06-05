@@ -1,6 +1,6 @@
 "use client";
 
-import Logo from "@/components/shared/Logo";
+import Logo from "@/components/shared/logo";
 import { useTranslations } from "next-intl";
 
 const Ribbon = () => {

@@ -3,6 +3,7 @@ import { Menu } from "@mui/icons-material";
 import Image from "next/image";
 import Phone from "@/assets/images/phone.svg";
 import FlagSelect from "@/components/Navigation/FlagSelect";
+import { Link } from "@/navigation";
 
 type MobileProps = {
   isScrolled?: boolean;
@@ -38,36 +39,36 @@ export const Mobile = ({ isScrolled }: MobileProps) => {
             </div>
             <ul className="flex flex-col">
               <li className="md:px-3 lg:px-7 xl:px-8 2xl:px-10 py-4 flex items-center">
-                <a
-                  href="/about"
+                <Link
+                  href="/about_us"
                   className="w-full flex justify-center font-bold"
                 >
                   {t("Про_компанію")}
-                </a>
+                </Link>
               </li>
               <li className="md:px-3 lg:px-7 xl:px-8 2xl:px-10 py-4 flex items-center">
-                <a
+                <Link
                   href="/services"
                   className="w-full flex justify-center font-bold"
                 >
                   {t("Послуги")}
-                </a>
+                </Link>
               </li>
               <li className="md:px-3 lg:px-7 xl:px-8 2xl:px-10 py-4 flex items-center">
-                <a
+                <Link
                   href="/gallery"
                   className="w-full flex justify-center font-bold"
                 >
                   {t("Фотогалерея")}
-                </a>
+                </Link>
               </li>
               <li className="md:px-3 lg:px-7 xl:px-8 2xl:px-10 py-4 flex items-center">
-                <a
+                <Link
                   href="/contacts"
                   className="w-full flex justify-center font-bold"
                 >
                   {t("Контакти")}
-                </a>
+                </Link>
               </li>
             </ul>
             <div className="my-10">

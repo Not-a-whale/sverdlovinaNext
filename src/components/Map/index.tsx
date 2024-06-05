@@ -17,10 +17,10 @@ const Map = () => {
 
       // init marker position
       const { Marker } = (await loader.importLibrary(
-        "marker",
+        "marker"
       )) as google.maps.MarkerLibrary;
 
-      const position = { lat: 49.233083, lng: 28.468217 };
+      const position = { lat: 50.62527715714659, lng: 26.252246271124616 };
 
       const mapOptions: google.maps.MapOptions = {
         center: position,

@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="text-sm breadcrumbs *:text-lg hidden lg:block">
         <ul>
           <li>
-            <Link style={{ textDecoration: "none" }} href={"/about"}>
+            <Link style={{ textDecoration: "none" }} href={"/about_us"}>
               {t("Про_компанію")}
             </Link>
           </li>

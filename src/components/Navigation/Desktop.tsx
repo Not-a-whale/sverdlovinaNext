@@ -1,9 +1,10 @@
 "use client";
 
-import Logo from "@/components/shared/Logo";
+import Logo from "@/components/shared/logo";
 import FlagSelect from "@/components/Navigation/FlagSelect";
 import { useTranslations } from "next-intl";
 import { PhoneLink } from "@/components/shared/phone-link";
+import { Link } from "@/navigation";
 
 type MobileProps = {
   isScrolled: boolean;
@@ -18,16 +19,16 @@ export const Desktop = ({ isScrolled }: MobileProps) => {
         <nav className="flex-[60%]">
           <ul className="flex text-base xl:text-l font-bold w-full justify-between">
             <li className="md:px-3 lg:px-7 xl:px-8 2xl:px-10 flex items-center">
-              <a href="/about">{t("Про_компанію")}</a>
+              <Link href="/about_us">{t("Про_компанію")}</Link>
             </li>
             <li className="md:px-3 lg:px-7 xl:px-8 2xl:px-10 flex items-center">
-              <a href="/services">{t("Послуги")}</a>
+              <Link href="/services">{t("Послуги")}</Link>
             </li>
             <li className="md:px-3 lg:px-7 xl:px-8 2xl:px-10 flex items-center">
-              <a href="/gallery">{t("Фотогалерея")}</a>
+              <Link href="/gallery">{t("Фотогалерея")}</Link>
             </li>
             <li className="md:px-3 lg:px-7 xl:px-8 2xl:px-10 flex items-center">
-              <a href="/contacts">{t("Контакти")}</a>
+              <Link href="/contacts">{t("Контакти")}</Link>
             </li>
           </ul>
         </nav>
