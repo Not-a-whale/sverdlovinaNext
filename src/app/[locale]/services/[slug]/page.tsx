@@ -1,12 +1,12 @@
 import { useTranslations } from "next-intl";
 import Navigation from "@/components/Navigation";
 import Top from "@/components/partials/Top";
-import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import { richTextConfig } from "@/shared/consts/rich-text-config";
 import Footer from "@/components/Footer";
 import { ReactNode } from "react";
 import { ModalTriggerLink } from "@/components/shared/modal-trigger-link";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 
 const ServicesSlugPage = ({ params }: { params: { slug: string } }) => {
   const t = useTranslations("Index");
@@ -46,21 +46,14 @@ const ServicesSlugPage = ({ params }: { params: { slug: string } }) => {
         description={description}
         backgroundImg={params.slug}
       ></Top>
-      <div className="text-sm breadcrumbs *:text-lg ml-[3.75%] mt-10 hidden lg:flex ">
-        <ul>
-          <li>
-            <Link style={{ textDecoration: "none" }} href={"/"}>
-              {t("Головна")}
-            </Link>
-          </li>
-          <li>
-            <Link style={{ textDecoration: "none" }} href={"/services"}>
-              {t(`service-${params.slug}`)}
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <section className="flex flex-col gap-4 lg:gap-12 mb-16 md:mb-20 lg:mb-36">
+      <Breadcrumbs
+        fragments={[
+          { title: t("Головна"), href: "/" },
+          { title: t("Послуги"), href: "/services" },
+          { title: heading, href: "/services/" + params.slug },
+        ]}
+      />
+      <section className="flex flex-col gap-2 mb-10 md:mb-20 lg:mb-36">
         <SectionHeading title={serviceHeading} isService={true} />
         <article className="flex flex-col lg:flex-row gap-4 lg:gap-20 justify-between w-[90%] mx-auto">
           <div className="flex flex-1 items-start">
@@ -69,7 +62,7 @@ const ServicesSlugPage = ({ params }: { params: { slug: string } }) => {
             </p>
           </div>
           <div className="flex flex-1 items-start">
-            <p className="flex-1 lg:text-2xl text-lg text-center lg:text-left lg:pt-[2.5rem]">
+            <p className="flex flex-col flex-1 lg:text-2xl text-lg text-center lg:text-left lg:pt-[2.5rem]">
               {serviceTextTopRight}
             </p>
           </div>
