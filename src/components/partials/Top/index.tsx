@@ -53,9 +53,8 @@ const Top = ({ children, heading, backgroundImg, description }: TopProps) => {
             className="md:my-4 lg:my-8
             text-center text-white text-[1.2rem] md:text-[1.5rem]
             lg:text-left"
-          >
-            {description}
-          </p>
+            dangerouslySetInnerHTML={{ __html: description as string }}
+          ></p>
         </div>
         <div className="flex flex-col justify-center w-[90%] lg:w-[45%] mx-auto ">
           <MainForm />

@@ -15,9 +15,10 @@ const countries = [
 
 type FlagSelectProps = {
   isMobile?: boolean;
+  isScrolled?: boolean;
 };
 
-const FlagSelect = ({ isMobile }: FlagSelectProps) => {
+const FlagSelect = ({ isMobile, isScrolled }: FlagSelectProps) => {
   const params = useParams();
   const router = useRouter();
   const path = usePathname();
@@ -56,7 +57,7 @@ const FlagSelect = ({ isMobile }: FlagSelectProps) => {
       </button>
       <ul
         id={selectionClass}
-        className="absolute right-[50%] w-full lg:w-max transform translate-x-1/2 mt-2 bg-transparent shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] hidden"
+        className={`absolute right-[50%] w-full lg:w-max transform translate-x-1/2 mt-2 bg-transparent shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] ${isScrolled && "bg-white bg-opacity-90"} hidden`}
       >
         {countries.map((country) => (
           <li
@@ -64,7 +65,7 @@ const FlagSelect = ({ isMobile }: FlagSelectProps) => {
             onClick={() => {
               handleSelect(country);
             }}
-            className={`flex items-center gap-2 p-2 cursor-pointer hover:bg-background hover:font-bold w-max`}
+            className={`flex items-center gap-2 p-2 cursor-pointer hover:bg-background hover:font-bold w-full`}
           >
             <Image
               src={country.flag}

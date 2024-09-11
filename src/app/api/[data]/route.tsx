@@ -1,5 +1,5 @@
-import connectToDb from "../../../../utils/connectToDb";
 import { NextRequest, NextResponse } from "next/server";
+import connectToDb from "@/app/mongoose/connect-to-db";
 
 export const revalidate = 0;
 

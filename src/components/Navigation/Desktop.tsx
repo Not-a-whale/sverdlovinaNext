@@ -55,7 +55,7 @@ export const Desktop = ({ isScrolled }: MobileProps) => {
           </div>
         </div>
         <div className="flex-[20%]">
-          <FlagSelect />
+          <FlagSelect isScrolled={isScrolled} />
         </div>
       </div>
     </>

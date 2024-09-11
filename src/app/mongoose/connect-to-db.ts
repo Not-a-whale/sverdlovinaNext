@@ -20,6 +20,7 @@ async function connectToDb() {
 
   client = mongoose.connection;
   const db = mongoose.connection.db; // Use mongoose.connection directly
+  console.log("Connected to db", db);
   bucket = new mongoose.mongo.GridFSBucket(db, {
     bucketName: "images",
   });

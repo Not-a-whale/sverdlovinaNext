@@ -1,83 +1,93 @@
-import { useTranslations } from "next-intl";
 import Navigation from "@/components/Navigation";
 import Top from "@/components/partials/Top";
 import SectionHeading from "@/components/SectionHeading";
-import { richTextConfig } from "@/shared/consts/rich-text-config";
 import Footer from "@/components/Footer";
-import { ReactNode } from "react";
-import { ModalTriggerLink } from "@/components/shared/modal-trigger-link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { IServiceText } from "@/shared/interfaces/service-text.interface";
+import { getTranslations } from "next-intl/server";
 
-const ServicesSlugPage = ({ params }: { params: { slug: string } }) => {
-  const t = useTranslations("Index");
+const getData = async (
+  slug: string,
+  locale: string,
+): Promise<IServiceText | undefined> => {
+  console.log(slug);
+  console.log(locale);
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_URL}/api/services?slug=${slug}&locale=${locale}`,
+      {
+        cache: "no-store",
+      },
+    );
+    return (await res.json()) as IServiceText;
+  } catch (e) {
+    console.log(e);
+  }
+};
 
-  const heading = t(`service-${params.slug}`);
-  const serviceHeading = t(`service-heading-${params.slug}`);
-  const servicePriceHeading = t(`service-price-heading-${params.slug}`);
-  const description = t.rich(
-    `service-${params.slug}-description`,
-    richTextConfig,
-  );
-  const serviceTextTopLeft = t.rich(
-    `service-text-top-left-${params.slug}`,
-    richTextConfig,
-  );
-  const serviceTextTopRight = t.rich(
-    `service-text-top-right-${params.slug}`,
-    richTextConfig,
-  );
-  const servicePriceTextBottomLeft = t.rich(
-    `service-price-text-bottom-left-${params.slug}`,
-    richTextConfig,
-  );
-  const servicePriceTextBottomRight = t.rich(
-    `service-price-text-bottom-right-${params.slug}`,
-    {
-      ...richTextConfig,
-      requestLink: (chunks: ReactNode) => <ModalTriggerLink chunks={chunks} />,
-    },
-  );
+const ServicesSlugPage = async ({
+  params,
+}: {
+  params: { slug: string; locale: string };
+}) => {
+  const t = await getTranslations("Index");
+  const data = await getData(params.slug, params.locale);
+
+  if (!data || Object.keys(data).length === 0) {
+    return null;
+  }
 
   return (
     <main>
       <Navigation />
       <Top
-        heading={heading}
-        description={description}
+        heading={data.serviceHeading}
+        description={data.serviceDescription}
         backgroundImg={params.slug}
       ></Top>
       <Breadcrumbs
         fragments={[
           { title: t("Головна"), href: "/" },
           { title: t("Послуги"), href: "/services" },
-          { title: heading, href: "/services/" + params.slug },
+          {
+            title: t(data.serviceHeading),
+            href: "/services/" + params.slug,
+          },
         ]}
       />
       <section className="flex flex-col gap-2 mb-10 md:mb-20 lg:mb-36">
-        <SectionHeading title={serviceHeading} isService={true} />
+        <SectionHeading title={data.serviceTextHeading} isService={true} />
         <article className="flex flex-col lg:flex-row gap-4 lg:gap-20 justify-between w-[90%] mx-auto">
           <div className="flex flex-1 items-start">
-            <p className="flex-1 lg:text-2xl text-lg text-center lg:text-left">
-              {serviceTextTopLeft}
-            </p>
+            <p
+              className="flex-1 lg:text-2xl text-lg text-center lg:text-left"
+              dangerouslySetInnerHTML={{
+                __html: data.serviceTextTopLeft,
+              }}
+            ></p>
           </div>
           <div className="flex flex-1 items-start">
-            <p className="flex flex-col flex-1 lg:text-2xl text-lg text-center lg:text-left lg:pt-[2.5rem]">
-              {serviceTextTopRight}
-            </p>
+            <p
+              className="flex flex-col flex-1 lg:text-2xl text-lg text-center lg:text-left lg:pt-[2.5rem]"
+              dangerouslySetInnerHTML={{
+                __html: data.serviceTextTopRight,
+              }}
+            ></p>
           </div>
         </article>
-        <SectionHeading title={servicePriceHeading} isService={true} />
+        <SectionHeading title={data.servicePriceHeading} isService={true} />
         <article className="flex flex-col lg:flex-row gap-4 lg:gap-20 justify-between w-[90%] mx-auto">
           <div className="flex flex-1 items-start">
-            <p className="text-lg lg:text-2xl text-center lg:text-left">
-              {servicePriceTextBottomLeft}
-            </p>
+            <p
+              className="text-lg lg:text-2xl text-center lg:text-left"
+              dangerouslySetInnerHTML={{ __html: data.serviceTextBottomLeft }}
+            ></p>
           </div>
           <div className="flex flex-1 items-start">
-            <p className="text-lg lg:text-2xl text-center lg:text-left">
-              {servicePriceTextBottomRight}
-            </p>
+            <p
+              className="text-lg lg:text-2xl text-center lg:text-left"
+              dangerouslySetInnerHTML={{ __html: data.serviceTextBottomRight }}
+            ></p>
           </div>
         </article>
       </section>

@@ -1,8 +1,8 @@
 // api/route.jsx
 import { NextRequest, NextResponse } from "next/server";
 import { Readable } from "stream";
-import connectToDb from "../../../utils/connectToDb";
-import Reviews from "../../../utils/reviews";
+import connectToDb from "@/app/mongoose/connect-to-db";
+import Reviews from "@/app/mongoose/schemas/review";
 
 export const revalidate = 0;
 
